@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a9770d84-d242-4ad9-9e96-2ce407628b9c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>OutfitPainter</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterChannel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterChannelAssignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterChannelButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterChannelSelectionDropdown.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterCharacterController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterMakerChannelGUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterMakerGUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterPlugin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterSlot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterStudioGUI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\outfit_painter_studio.png" />
+  </ItemGroup>
+</Project>
