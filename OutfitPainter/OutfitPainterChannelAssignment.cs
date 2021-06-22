@@ -46,7 +46,7 @@ namespace OutfitPainter
                 char[] slotName = slot.ToString().ToLower().ToCharArray();
                 slotName[0] = char.ToUpper(slotName[0]);
                 if (slot == OutfitPainterSlot.ACCESSORY)
-                    return $"Acc {slotNumber} {(patternColor ? "Pattern" : "Color")} {(colorNumber == 4 ? colorNumber - 1 : colorNumber)}";
+                    return $"Acc {slotNumber + 1} {(patternColor ? "Pattern" : "Color")} {(colorNumber == 4 ? colorNumber - 1 : colorNumber)}";
                 else
                     return $"{new string(slotName)} {(patternColor ? "Pattern" : "Color")} {colorNumber}";
             }
