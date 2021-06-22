@@ -50,6 +50,53 @@ namespace OutfitPainter
                 else
                     return $"{new string(slotName)} {(patternColor ? "Pattern" : "Color")} {colorNumber}";
             }
+
+        }
+
+        public static Comparer<OutfitPainterChannelAssignment> CreateComparer()
+        {
+            return Comparer<OutfitPainterChannelAssignment>.Create((a1, a2) => {
+                if (a1.slot == a2.slot)
+                {
+                    if (a1.slotNumber == a2.slotNumber)
+                    {
+                        if (a1.patternColor == a2.patternColor)
+                        {
+                            // By Color Number
+                            return a1.colorNumber.CompareTo(a2.colorNumber);
+                        }
+                        else
+                        {
+                            // Normal Before Pattern
+                            return a1.patternColor.CompareTo(a2.patternColor);
+                        }
+                    }
+                    else
+                    {
+                        // By Slot Number
+                        return a1.slotNumber.CompareTo(a2.slotNumber);
+                    }
+                }
+                else if (a1.slot != OutfitPainterSlot.ACCESSORY && a2.slot != OutfitPainterSlot.ACCESSORY)
+                {
+                    // by slot
+                    return a1.slot.CompareTo(a2.slot);
+                }
+                else if (a1.slot == OutfitPainterSlot.ACCESSORY)
+                {
+                    return 1;
+                }
+                else if (a2.slot == OutfitPainterSlot.ACCESSORY)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return a1.slot.CompareTo(a2.slot);
+                }
+            });
         }
     }
+
+    
 }

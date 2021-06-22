@@ -46,7 +46,7 @@ namespace OutfitPainter
             SyncNow.OnClick.AddListener(() => {
                 Channel.Update(MakerAPI.GetCharacterControl());
             });
-            Description = new MakerText("Used By: " + String.Join(", ", data.FindSlotsForChannel(Channel.ChannelId).Select(a => a.Description).ToList()), makerCategory, owner);
+            Description = new MakerText("Used By: " + String.Join(", ", data.FindSlotsForChannel(Channel.ChannelId).OrderBy(a => a, OutfitPainterChannelAssignment.CreateComparer()).Select(a => a.Description).ToList()), makerCategory, owner);
 
             MakerAPI.AddControl(Name);
             MakerAPI.AddControl(Color);
@@ -65,7 +65,7 @@ namespace OutfitPainter
             Color.ControlObject?.GetComponent<CustomColorSet>().SetColor(channel.ChannelColor);
             Gloss.Value = channel.ChannelGloss;
             Metallic.Value = channel.ChannelMetallic;
-            Description.Text = "Used By: " + String.Join(", ", data.FindSlotsForChannel(channel.ChannelId).Select(a => a.Description).ToList());
+            Description.Text = "Used By: " + String.Join(", ", data.FindSlotsForChannel(channel.ChannelId).OrderBy(a => a, OutfitPainterChannelAssignment.CreateComparer()).Select(a => a.Description).ToList());
 
             bool visible = channel.Assignments.Count > 0;
 

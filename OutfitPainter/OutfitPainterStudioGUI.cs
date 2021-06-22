@@ -213,7 +213,7 @@ namespace OutfitPainter
 
                         // Breakdown
 
-                        GUILayout.Label($"Used By: {string.Join(",", channel.Assignments.Select(a => a.Description))}");
+                        GUILayout.Label($"Used By: {string.Join(",", channel.Assignments.OrderBy(a => a, OutfitPainterChannelAssignment.CreateComparer()).Select(a => a.Description))}");
 
                         GUILayout.EndVertical();
 

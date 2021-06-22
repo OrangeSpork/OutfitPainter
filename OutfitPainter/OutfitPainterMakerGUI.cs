@@ -42,6 +42,7 @@ namespace OutfitPainter
             }
         }
 
+        
         public static void ClothesSelectionChanged(CvsC_Clothes __instance)
         {
             if (dropdowns == null || dropdowns.Count == 0)
@@ -86,6 +87,23 @@ namespace OutfitPainter
             }
 
         }
+
+        public static void UpdateAccessoryOnReload()
+        {
+            int selectedSlot = AccessoriesApi.SelectedMakerAccSlot;
+            if (selectedSlot == -1)
+                return;
+
+            ChaControl character = MakerAPI.GetCharacterControl();
+            OutfitPainterCharacterController controller = character?.gameObject.GetComponent<OutfitPainterCharacterController>();
+            for (int i = 6; i < dropdowns.Count; i++)
+            {
+                OutfitPainterChannelSelectionDropdown dropdown = dropdowns[i];
+                int channelId = controller.Data.FindChannelIdForAssignment(OutfitPainterSlot.ACCESSORY, selectedSlot, i - 5, false);
+                dropdown.Value = channelId;
+            }
+        }
+
 
         private void AccessoryCopied(object sender, AccessoryTransferEventArgs eventArgs)
         {

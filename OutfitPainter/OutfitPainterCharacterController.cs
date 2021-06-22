@@ -2,6 +2,7 @@
 using ExtensibleSaveFormat;
 using KKAPI;
 using KKAPI.Chara;
+using KKAPI.Maker;
 using KKAPI.Studio;
 using MessagePack;
 using System;
@@ -56,6 +57,9 @@ namespace OutfitPainter
             }
 
             InitializeCustomClothes();
+
+            if (MakerAPI.InsideAndLoaded)
+                OutfitPainterMakerGUI.UpdateAccessoryOnReload();
         }
 
         protected override void OnCoordinateBeingLoaded(ChaFileCoordinate coordinate, bool maintainState)
@@ -67,6 +71,10 @@ namespace OutfitPainter
             }
 
             InitializeCustomClothes();
+
+            if (MakerAPI.InsideAndLoaded)
+                OutfitPainterMakerGUI.UpdateAccessoryOnReload();
+
         }
 
         private void ReleaseCustomClothes()
