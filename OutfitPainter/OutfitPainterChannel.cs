@@ -144,5 +144,10 @@ namespace OutfitPainter
                 UpdateAssignment(character, assignment);
             }
         }
+
+        public String BuildChannelDescription()
+        {
+            return "Used By: " + String.Join(", ", Assignments.OrderBy(a => a, OutfitPainterChannelAssignment.CreateComparer()).Select(a => a.Description).ToList());
+        }
     }
 }
