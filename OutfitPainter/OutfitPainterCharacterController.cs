@@ -1,5 +1,6 @@
 ﻿using AIChara;
 using ExtensibleSaveFormat;
+using HarmonyLib;
 using KKAPI;
 using KKAPI.Chara;
 using KKAPI.Maker;
@@ -8,6 +9,7 @@ using MessagePack;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -114,6 +116,7 @@ namespace OutfitPainter
                 InitializeCustomClothes();
         }
 
+        private static FieldInfo matCreateField = AccessTools.Field(typeof(CustomTextureCreate), "matCreate");
         private bool IsCtCreateClothesInstantiated(int part, int color)
         {
             if (ChaControl.ctCreateClothes == null)
@@ -134,15 +137,15 @@ namespace OutfitPainter
                 return false;
             }
 
-            if (ChaControl.ctCreateClothes[part, 0].texMain == null)
+            if (ChaControl.ctCreateClothes[part, 0].GetCreateTexture() == null)
             {
 #if DEBUG
                 OutfitPainterPlugin.Instance.Log.LogInfo($"No texMain on {ChaControl.fileParam.fullname} slot {OutfitPainterData.SlotForClothesKind(part)} color {color + 1}");
 #endif
                 return false;
-            } 
+            }
 
-            if (ChaControl.ctCreateClothes[part, 0].matCreate == null)
+            if (matCreateField.GetValue(ChaControl.ctCreateClothes[part, 0]) == null)
             {
 #if DEBUG
                 OutfitPainterPlugin.Instance.Log.LogInfo($"No matCreate on {ChaControl.fileParam.fullname} slot {OutfitPainterData.SlotForClothesKind(part)} color {color + 1}");

@@ -12,6 +12,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		OutfitPainter\OutfitPainter.projitems*{3b32449b-ba9b-4315-8bf4-7f01a575ce16}*SharedItemsImports = 4
+		OutfitPainter\OutfitPainter.projitems*{68e55882-25ef-45f2-8142-7a1b081d5a59}*SharedItemsImports = 4
 		OutfitPainter\OutfitPainter.projitems*{a9770d84-d242-4ad9-9e96-2ce407628b9c}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace OutfitPainter
 {
@@ -61,6 +62,9 @@ namespace OutfitPainter
         {
             Channel = channel;
             Name.Value = channel.ChannelDescription;
+
+            if (Name.ControlObject?.transform.Find("SldInputField/Text")?.GetComponent<Text>())
+                Name.ControlObject.transform.Find("SldInputField/Text").GetComponent<Text>().resizeTextForBestFit = true;
             Color.Value = channel.ChannelColor;
             Color.ControlObject?.GetComponent<CustomColorSet>().SetColor(channel.ChannelColor);
             Gloss.Value = channel.ChannelGloss;
