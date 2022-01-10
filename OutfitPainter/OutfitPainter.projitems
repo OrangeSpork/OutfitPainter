@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterMakerChannelGUI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterMakerGUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterMaterialEditorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterPlugin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterSlot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OutfitPainterStudioGUI.cs" />

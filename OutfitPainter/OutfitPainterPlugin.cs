@@ -22,12 +22,13 @@ namespace OutfitPainter
 {
     [BepInPlugin(GUID, PluginName, Version)]
     [BepInDependency(KoikatuAPI.GUID, KoikatuAPI.VersionConst)]
+    [BepInDependency("com.deathweasel.bepinex.materialeditor")]
     public class OutfitPainterPlugin : BaseUnityPlugin
     {
 
         public const string GUID = "orange.spork.outfitpainter";
         public const string PluginName = "Outfit Painter";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
 
         public static OutfitPainterPlugin Instance { get; set; }
 

@@ -95,7 +95,8 @@ namespace OutfitPainter
                 {
                     character.nowCoordinate.clothes.parts[(int)assignment.slot].colorInfo[assignment.colorNumber - 1].baseColor = ChannelColor;
                     character.chaFile.coordinate.clothes.parts[(int)assignment.slot].colorInfo[assignment.colorNumber - 1].baseColor = ChannelColor;
-                }                
+                }
+                OutfitPainterMaterialEditorHelper.SetMaterialEditorCustomClothesFlag(character);
                 character.ChangeCustomClothes(kind: ((int)assignment.slot), updateColor: true, updateTex01: true, updateTex02: true, updateTex03: true);               
             }
             else
